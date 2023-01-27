@@ -11,6 +11,26 @@ const server = https.createServer({
     cert: fs.readFileSync('server.cert') 
 }, app);
 
+// gestion connection BDD
+
+  //  contient la phrase de connection à la bdd
+const mdp = require('./env');
+
+
+const connectionString = mdp.mongoAtlasUri;
+
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Connected to MongoDB Atlas!');
+});
+
 // gestion du body-parser et app.use
 let bodyParser = require("body-parser");
 const { url } = require('inspector');

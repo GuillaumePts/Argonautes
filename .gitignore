@@ -100,6 +100,6 @@ $RECYCLE.BIN/
 # Sécurité
 server.cert 
 server.key
-mdp.js
+env.js
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode
