@@ -53,8 +53,11 @@ app.get('/', (req, res)=>{
 
 })
 
+
+// envoi de la liste coté client
 app.get('/liste', (req , res) =>{
 
+  //on va chercher dans la BDD la liste des Argonautes
   Name.find((err, rslt) => {
 
     if(err){
@@ -70,10 +73,15 @@ app.get('/liste', (req , res) =>{
 
 })
 
+
+// inscription de l'Argonaute
 app.post('/add' , (req,res)=>{
 
+    //via le body-parser on recupère le contenu envoyé coté client  
     let argonaute = req.body.name
     
+
+    // gestion des erreurs
     let tabErr = []
     
     if(argonaute === ''){
@@ -92,6 +100,8 @@ app.post('/add' , (req,res)=>{
 
         let verifName = argonaute
 
+
+        // vérification si l'argonaute est déja inscrit en BDD
         Name.findOne({
           name : verifName
       }, (err,exist)=>{

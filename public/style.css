@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+*{margin:0;padding: 0;box-sizing: border-box;}
+
 body {
-  margin: 0;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  position: relative;
 }
 
-main {
-  max-width: 960px;
-  margin: 0 auto;
+#app{
+  min-height: 100vh;
+  width: 1240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 1px 1px 1px black;
 }
+
+
 
 header {
   background: #f4f4f4;
@@ -30,6 +43,10 @@ h1, h2 {
   text-align: center;
 }
 
+h2{
+  margin-bottom: 20px;
+}
+
 label {
   display: block;
   margin-bottom: 0.5em;
@@ -38,10 +55,47 @@ label {
 .new-member-form {
   margin: 2em 0 4em 0;
   text-align: center;
+  min-height: 100px;
+  
+}
+
+#errName{
+  font-size: 1rem;
+  color: rgb(219, 6, 6);
+  font-weight: 900;
+  margin-top: 20px;
+}
+
+#ok{
+  font-size: 1rem;
+  color: rgb(18, 188, 30);
+  font-weight: 900;
+  margin-top: 20px;
 }
 
 .member-item {
-  padding: 0.25em 0;
+  padding: 10px;
+  font-size: 0.8rem;
+  width: 100%;
+  overflow-x: scroll ;
+
+}
+
+
+
+/* .member-item:nth-child(2n){
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+} */
+
+#member-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row: 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px ;
+  margin: 0 auto;
 }
 
 footer {
@@ -49,5 +103,5 @@ footer {
   text-align: center;
   color: #fff;
   background: #f76c6c;
-  padding: 0.25em 0;
+  padding: 30px ;
 }
