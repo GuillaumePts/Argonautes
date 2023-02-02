@@ -6,7 +6,7 @@ const liste = document.querySelector('#member-list')
 
 // Au chargement du site on lance un fetch qui récupère la liste des Argonautes déja inscrit
 // et on les affiches 
-fetch('herokuapp.com/liste')
+fetch('/liste')
 .then(res => res.json())
 .then((datas) => {
 
@@ -44,7 +44,7 @@ function refreshListe(){
         liste.removeChild(liste.firstChild);
     }
 
-    fetch('herokuapp.com/liste')
+    fetch('/liste')
     .then(res => res.json())
     .then((datas) => {
 
@@ -93,7 +93,7 @@ button.addEventListener('click', ()=>{
             name : verifName
         }
         
-        fetch('herokuapp.com/add', {
+        fetch('/add', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
