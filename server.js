@@ -6,10 +6,10 @@ const  https = require('https');
 const fs = require('fs');
 
 // gestion https
-const server = https.createServer({ 
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert') 
-}, app);
+// const server = https.createServer({ 
+//     key: fs.readFileSync('server.key'),
+//     cert: fs.readFileSync('server.cert') 
+// }, app);
 
 // gestion connection BDD
 
@@ -137,6 +137,6 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
-server.listen(port, (req, res)=>{
+app.listen(port, (req, res)=>{
   console.log("server ok ! : https://192.168.1.13:8000");
 });
