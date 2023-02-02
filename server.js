@@ -129,6 +129,14 @@ app.post('/add' , (req,res)=>{
 
 
 // server écoute sur le port 9999
-server.listen(9999, (req, res)=>{
-    console.log("server ok ! : https://192.168.1.13:9999");
-})
+// server.listen(9999, (req, res)=>{
+//     console.log("server ok ! : https://192.168.1.13:9999");
+// })
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+server.listen(port, (req, res)=>{
+  console.log("server ok ! : https://192.168.1.13:8000");
+});
