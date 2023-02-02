@@ -138,5 +138,5 @@ if (port == null || port == "") {
   port = 8000;
 }
 app.listen(port, (req, res)=>{
-  console.log("server ok ! : https://192.168.1.13:8000");
+  console.log("server ok ! : http://192.168.1.13:8000");
 });
