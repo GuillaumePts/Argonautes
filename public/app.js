@@ -10,14 +10,26 @@ fetch('/liste')
 .then(res => res.json())
 .then((datas) => {
 
-datas.forEach(el => {
+    if(datas.length === 0){
+        let div = document.createElement('div')
+        div.textContent = 'Aucun Agonaute inscrit dans votre armée !'
+        liste.appendChild(div)
+    }else{
+        datas.forEach(el => {
 
-    let div = document.createElement('div')
-    div.classList.add('member-item')
-    div.textContent = el.name
-    liste.appendChild(div)
+            let div = document.createElement('div')
+            div.classList.add('member-item')
+            div.textContent = el.name
+        
+             //vérification de la longueur du nom
+            if(el.name.length >=20){
+                div.style.overflowX = 'scroll'
+            }
+            liste.appendChild(div)
+        
+        });
+    }
 
-});
 })
 
 // Fonction qui permet de mettre à jour la liste des Argonautes lorsqu'on
@@ -41,6 +53,11 @@ function refreshListe(){
         let div = document.createElement('div')
         div.classList.add('member-item')
         div.textContent = el.name
+
+        //vérification de la longueur du nom
+        if(el.name.length >=20){
+            div.style.overflowX = 'scroll'
+        }
         liste.appendChild(div)
 
     });
@@ -53,6 +70,7 @@ function refreshListe(){
 
 // Bouton "envoyé" mis en écoute
 button.addEventListener('click', ()=>{
+
 
     // on met dans une variable le contenu de l'input 
     let name = input.value
@@ -92,7 +110,7 @@ button.addEventListener('click', ()=>{
                 document.querySelector('#ok').textContent = 'Argonaute inscrit !'
                 setTimeout(() => {
                     document.querySelector('#ok').textContent = ''
-                }, 2000);
+                }, 3000);
             }else{
                 document.querySelector('#errName').textContent = data
             }
@@ -100,9 +118,7 @@ button.addEventListener('click', ()=>{
                 
             
         })
-        .catch(err =>{
-            console.log(err);
-        })
+        
 
 
     } else {

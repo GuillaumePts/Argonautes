@@ -62,7 +62,7 @@ app.get('/liste', (req , res) =>{
 
     if(err){
 
-      console.log(err);
+      console.log(err);;
       
     }else if(rslt){
 
@@ -106,8 +106,8 @@ app.post('/add' , (req,res)=>{
           name : verifName
       }, (err,exist)=>{
           if(err){
-              console.log(err)
-              res.send(JSON.stringify('une erreur est survenu lors de l\'enregistrement de votre message'))
+              // console.log(err)
+              res.send(JSON.stringify('une erreur est survenu lors de l\'enregistrement de l\'Argonaute'))
           }else if(exist){
               res.send(JSON.stringify('un Argonaute est déja inscrit à ce nom'))
           }else{
